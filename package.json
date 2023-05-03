@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1370.0",
+    "expo-cli": "^6.3.2",
+    "uuid": "^9.0.0"
+  }
+}
