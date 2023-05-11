@@ -24,30 +24,52 @@
         - httpApi:
             path: /
             method: get
+
     insertItem:
       handler: src/crudItems.insertItem
       events:
         - http:
             path: /item
             method: post
+            authorizer:
+              arn: arn:aws:cognito-idp:us-east-1:906952276782:userpool/us-east-1_dSQlh4dhZ
+              identitySource: method.request.header.Authorization
+              type: COGNITO_USER_POOLS
+              
+
     getAllItems:
       handler: src/crudItems.getAllItems
       events:
         - http:
             path: /items
             method: get
+            authorizer:
+              arn: arn:aws:cognito-idp:us-east-1:906952276782:userpool/us-east-1_dSQlh4dhZ
+              identitySource: method.request.header.Authorization
+              type: COGNITO_USER_POOLS
+              
     getItemById:
       handler: src/crudItems.getItemById
       events:
         - http:
             path: /items/{id}
             method: get
+            authorizer:
+              arn: arn:aws:cognito-idp:us-east-1:906952276782:userpool/us-east-1_dSQlh4dhZ
+              identitySource: method.request.header.Authorization
+              type: COGNITO_USER_POOLS
+              
     updateItemById:
       handler: src/crudItems.updateItemById
       events:
         - http:
             path: /items/{id}
             method: put
+            authorizer:
+              arn: arn:aws:cognito-idp:us-east-1:906952276782:userpool/us-east-1_dSQlh4dhZ
+              identitySource: method.request.header.Authorization
+              type: COGNITO_USER_POOLS
+              
 
   resources:
     Resources:
